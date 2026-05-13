@@ -1,0 +1,119 @@
+/* 全域設定 */
+body {
+    font-family: "Microsoft JhengHei", sans-serif;
+    margin: 0;
+    padding: 0;
+    /* 改用深酒紅漸層背景，中心處微亮，邊緣深暗 */
+    background: radial-gradient(circle at center, #3d0a0a 0%, #1a0505 60%, #0a0000 100%);
+    background-attachment: fixed;
+    color: #e0e0e0; /* 稍微降低白色亮度，保護眼睛 */
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 60px 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #ff4d4d;
+    /* 增加發光陰影，營造霓虹燈管的氛圍 */
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.4), 0 0 20px rgba(255, 77, 77, 0.2);
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+
+/* 滑動容器 */
+.slider-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 30px;
+    padding: 20px 50px;
+    /* 美化 Firefox 捲動條 */
+    scrollbar-width: thin;
+    scrollbar-color: #8b0000 transparent;
+}
+
+/* 美化 Chrome/Safari 捲動條 */
+.slider-container::-webkit-scrollbar {
+    height: 6px;
+}
+.slider-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, #440000, #8b0000);
+    border-radius: 10px;
+}
+
+/* 圖片包裝 */
+.slide-item {
+    flex: 0 0 100%; /* 強制一張換一張 */
+    scroll-snap-align: center;
+    transition: transform 0.5s;
+    display: flex;
+    justify-content: center;
+}
+
+.slide-item img {
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    /* 邊框改用深紅褐色 */
+    border: 1px solid rgba(255, 77, 77, 0.3);
+    /* 紅色霧面陰影 */
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6), 0 5px 15px rgba(139, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.slide-item img:hover {
+    transform: scale(1.02);
+    border-color: #ff4d4d;
+    box-shadow: 0 20px 50px rgba(255, 0, 0, 0.3);
+}
+
+/* 燈箱 */
+#lightbox {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* 使用帶有一點深紅底色的透明黑 */
+    background: rgba(10, 0, 0, 0.96);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px); /* 燈箱開啟時背景模糊 */
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(255, 77, 77, 0.2);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(to top, rgba(30, 0, 0, 0.8), transparent);
+}
+
+.contact-info a {
+    color: #ff8080; /* 淡紅色的連結更柔和 */
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contact-info a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #ff4d4d;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #666;
+    margin-top: 15px;
+}
